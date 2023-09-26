@@ -5,24 +5,38 @@
 #include "driver/gpio.h"
 #include "esp_timer.h"
 
-void print_studentID(void *pvParameter)
-{
-    for (;;)
-    {
-        // print student ID and time (s)
-        printf("Task1: 2013552 2013223, time: %lld(s)\n", esp_timer_get_time() / 1000000);
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
-    }
-}
+
 
 #define DEBOUNCE_TIME 50
-
+int LED2_STATE = 0; //led 2 is use to identify that Task1 is acive and this is the led's state
 static uint32_t millis()
 {
     // get current time (ms)
     return esp_timer_get_time() / 1000;
 }
+// Task 1
+void print_studentID(void *pvParameter)
+{
+    //setup pin 2 for led.
+    esp_rom_gpio_pad_select_gpio(GPIO_NUM_2);
+    gpio_set_direction(GPIO_NUM_2, GPIO_MODE_OUTPUT);
 
+    for (;;)
+    {
+        // print student ID and time (s)
+        printf("Task1: 2013552 2013223, time: %lld(s)\n", esp_timer_get_time() / 1000000);
+        gpio_set_level(GPIO_NUM_2, LED2_STATE);
+        //Reverse led 2 state
+        if(LED2_STATE){
+            LED2_STATE = 0;
+        } else {
+            LED2_STATE = 1;
+        }
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        
+    }
+}
+// Task 2 When the button pressed
 void read_button(void *param)
     {
     // setup pin 19 for button
@@ -30,7 +44,7 @@ void read_button(void *param)
     gpio_set_direction(GPIO_NUM_17, GPIO_MODE_INPUT);
     gpio_set_pull_mode(GPIO_NUM_17, GPIO_PULLUP_ONLY);
 
-    // setup pin 5 for led
+    // setup pin 5 for led.
     esp_rom_gpio_pad_select_gpio(GPIO_NUM_5);
     gpio_set_direction(GPIO_NUM_5, GPIO_MODE_OUTPUT);
 
@@ -40,8 +54,9 @@ void read_button(void *param)
 
     uint32_t lastDebounceTime = 0; // the last time input pin was toggled
 
-    for (;;)
+    while (1)
     {
+        /* code */
         // read the state of the button:
         currentState = gpio_get_level(GPIO_NUM_17);
 
@@ -74,6 +89,7 @@ void read_button(void *param)
         }
         vTaskDelay(20 / portTICK_PERIOD_MS);
     }
+    
 }
 
 void app_main(void)
