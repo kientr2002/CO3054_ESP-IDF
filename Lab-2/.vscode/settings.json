@@ -15,5 +15,8 @@
   "idf.pythonBinPathWin": "C:\\Espressif\\python_env\\idf5.1_py3.11_env\\Scripts\\python.exe",
   "idf.toolsPathWin": "C:\\Espressif",
   "idf.flashType": "UART",
-  "C_Cpp.errorSquiggles": "disabled"
+  "C_Cpp.errorSquiggles": "disabled",
+  "files.associations": {
+    "esp_timer.h": "c"
+  }
 }
