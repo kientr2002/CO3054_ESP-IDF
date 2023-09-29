@@ -11,6 +11,10 @@
 #define LED_ON 1
 #define LED_OFF 0
 
+// We will using it when the button is holding not pressed
+#define HOLD_TIME 1000
+bool HOLDING_TASK = 0; 
+
 static uint32_t current_ms()
 {
     // get current time (ms)
@@ -23,17 +27,19 @@ void print_studentID(void *pvParameter)
     //setup pin 2 for led.
     esp_rom_gpio_pad_select_gpio(GPIO_NUM_2);
     gpio_set_direction(GPIO_NUM_2, GPIO_MODE_OUTPUT);
-
-    while (1)
-    {
-        /* code */
-        // print student ID and time (s)
-        printf("%lld s: 2013552 2013223\n", esp_timer_get_time() / 1000000);
-        gpio_set_level(GPIO_NUM_2, LED2_STATE);
-        //Reverse led 2 state
-        LED2_STATE = LED2_STATE?LED_OFF:LED_ON;
-        vTaskDelay(1000 / portTICK_PERIOD_MS); //1s
+    if(!HOLDING_TASK){
+        while (1)
+            {
+                /* code */
+                // print student ID and time (s)
+                printf("%lld s: 2013552 2013223\n", esp_timer_get_time() / 1000000);
+                gpio_set_level(GPIO_NUM_2, LED2_STATE);
+                //Reverse led 2 state
+                LED2_STATE = LED2_STATE?LED_OFF:LED_ON;
+                vTaskDelay(1000 / portTICK_PERIOD_MS); //1s
+            }
     }
+
     
 }
 // Task 2 When the button pressed
@@ -61,14 +67,12 @@ void read_button(void *param)
         /* code */
         // read the state of the button:
         currentState = gpio_get_level(GPIO_NUM_17);
-
         // If the button changed, due to noise or pressing:
         if (currentState != previousState)
         {
             lastDebounceTime = current_ms();
             previousState = currentState;
         }
-
         // whatever the reading is at, it's been there for longer than the debounce
         // delay, so take it as the actual current state:
         if ((current_ms() - lastDebounceTime) > DEBOUNCE_TIME)
@@ -78,10 +82,15 @@ void read_button(void *param)
             {
                 gpio_set_level(GPIO_NUM_5, LED_ON);
                 printf("ESP32\n");
-            }
-                else if (previousStableState == 0 && currentState == 1)
+            } else if (previousStableState == 0 && currentState == 1)
             {
                 gpio_set_level(GPIO_NUM_5, LED_OFF);
+            } else if (previousStableState == 0 && currentState == 0){
+                if((current_ms() - lastDebounceTime) > HOLD_TIME){
+                    printf("Button is holding!\n");
+                        HOLDING_TASK = 1;
+                } 
+                
             }
             previousStableState = currentState;
         }
@@ -95,3 +104,5 @@ void app_main(void)
     xTaskCreate(print_studentID, "Task 1", 2048, NULL, 5, NULL);
     xTaskCreate(read_button, "Task 2", 2048, NULL, 6, NULL);
 }
+
+//Run task without GUI: idf.py build ; idf.py -p COM3 flash ; idf.py -p COM3 monitor
