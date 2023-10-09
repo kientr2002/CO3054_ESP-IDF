@@ -17,13 +17,13 @@
 * Flash and Build "Hello World" Project:
    * First, make sure the device is fully connected and the correct COM port is selected.
    * You can use GUI of VS Code with the following steps:
-     * Build:
+     * Build:<br>
        ![Lab1](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab1/7.png)
-     * Flash:
+     * Flash:<br>
        ![Lab1](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab1/8.png)
-     * Monitor device to view the result in the terminal:
+     * Monitor device to view the result in the terminal:<br>
        ![Lab1](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab1/9.png)
-* You also can reference the README.md from the development team below:
+* You also can reference the README.md from the development team below:<br>
 | Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C6 | ESP32-H2 | ESP32-S2 | ESP32-S3 |
 | ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- |
 
