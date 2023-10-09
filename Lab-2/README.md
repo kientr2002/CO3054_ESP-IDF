@@ -4,10 +4,10 @@
   * Create, schedule, and delete FreeRTOS tasks on the ESP32 development board.
   * Successfully complete the final exercise of the lab with the following content:
     * Students create 2 tasks and schedule them using FreeRTOS’s task management
-functions:
-      • A cyclic task printing your student identifier every second.
-      • An acyclic task polling a button and print "ESP32" every when the button
-is pressed.
+functions: <br>
+      • A cyclic task printing your student identifier every second. <br>
+      • An acyclic task polling a button and print "ESP32" every when the button 
+is pressed. <br>
 * Preparation:
    * IDE and Extensions (We use VSCode and Espressif IDF, You can reference from [here](https://github.com/kientr2002/CO3054_ESP-IDF)
    * Mtiny ESP32 WROOM-32E (Arduino Compatible) (You also use another version of ESP32, this device that you can buy [here](https://hshop.vn/products/mach-mtiny-esp32-wroom-32e-arduino-compatible)) <br>
