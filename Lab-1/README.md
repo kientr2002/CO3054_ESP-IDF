@@ -5,9 +5,9 @@
    * Successfully completing the final exercise: building and flashing the "Hello world!" greeting to the ESP32 board.
 * Preparation:
    * IDE and Extensions (We use VSCode and Espressif IDF, You can reference from [here](https://github.com/kientr2002/CO3054_ESP-IDF)
-   * Mtiny ESP32 WROOM-32E (Arduino Compatible) (You also use another version of ESP32, this device that you can buy [here](https://hshop.vn/products/mach-mtiny-esp32-wroom-32e-arduino-compatible))
+   * Mtiny ESP32 WROOM-32E (Arduino Compatible) (You also use another version of ESP32, this device that you can buy [here](https://hshop.vn/products/mach-mtiny-esp32-wroom-32e-arduino-compatible)) <br>
      ![Lab1](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab1/10.png)
-   *  Mtiny Programmer (Arduino Compatible) (You must use it if you buy the ESP32 like the one above, this device that you can buy [here](https://hshop.vn/products/mach-mtiny-programmer-arduino-compatible))
+   *  Mtiny Programmer (Arduino Compatible) (You must use it if you buy the ESP32 like the one above, this device that you can buy [here](https://hshop.vn/products/mach-mtiny-programmer-arduino-compatible)) <br>
      ![Lab1](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab1/11.png)
 * Create a Hello World Example:
    * You press "F1", enter “esp examples”:
@@ -23,6 +23,9 @@
        ![Lab1](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab1/8.png)
      * Monitor device to view the result in the terminal:<br>
        ![Lab1](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab1/9.png)
+    * Otherway, You can use a command terminal to execute the program include build, flash and monitor (Note: In which <COM> represents the port connected to the ESP32 on the device.): <br>
+     ### `idf.py build ; idf.py -p <COM> flash ; idf.py -p <COM> monitor`
+    
 * You also can reference the README.md from the development team below:<br>
 | Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C6 | ESP32-H2 | ESP32-S2 | ESP32-S3 |
 | ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- |
