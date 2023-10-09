@@ -46,7 +46,7 @@ void print_studentID(void *pvParameter)
 
 void read_button(void *param)
     {
-    // setup pin 19 for button (pull-up)
+    // setup pin 17 for button (pull-up)
     esp_rom_gpio_pad_select_gpio(GPIO_NUM_17);
     gpio_set_direction(GPIO_NUM_17, GPIO_MODE_INPUT);
     gpio_set_pull_mode(GPIO_NUM_17, GPIO_PULLUP_ONLY);
