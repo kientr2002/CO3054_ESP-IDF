@@ -12,8 +12,8 @@
   * After that, you press "F1", enter “esp configure”:
     ![ESP32-IDF](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab1/2.png)
     ![ESP32-IDF](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab1/3.png)
-  * Choose Express and setting according to the following figure (Note: Ensure that Enter ESP-IDF container directory is empty):
+  * Choose Express and setting according to the following figure (Note: Ensure that folder of the path of Enter ESP-IDF container directory is empty):
     ![ESP32-IDF](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab1/4.png)
-  * Finally, Choose Enter and Waiting for everything installed.
+  * Finally, Choose Install and Waiting for everything installed.
  
  
