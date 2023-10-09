@@ -1,3 +1,24 @@
+# Embedded System Lab 02: ESP32 GPIO and FreeRTOS task
+* Description:
+  * Read Input and write Output to GPIO pins.
+  * Create, schedule, and delete FreeRTOS tasks on the ESP32 development board.
+  * Successfully complete the final exercise of the lab with the following content:
+    * Students create 2 tasks and schedule them using FreeRTOS’s task management
+functions:
+      • A cyclic task printing your student identifier every second.
+      • An acyclic task polling a button and print "ESP32" every when the button
+is pressed.
+* Preparation:
+   * IDE and Extensions (We use VSCode and Espressif IDF, You can reference from [here](https://github.com/kientr2002/CO3054_ESP-IDF)
+   * Mtiny ESP32 WROOM-32E (Arduino Compatible) (You also use another version of ESP32, this device that you can buy [here](https://hshop.vn/products/mach-mtiny-esp32-wroom-32e-arduino-compatible))
+     ![Lab2](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab1/10.png)
+   *  Mtiny Programmer (Arduino Compatible) (You must use it if you buy the ESP32 like the one above, this device that you can buy [here](https://hshop.vn/products/mach-mtiny-programmer-arduino-compatible))
+     ![Lab2](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab1/11.png)
+* Simulation Diagram:
+     ![Lab2](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab2/1.png)
+*  Real-life images:
+     ![Lab2](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab2/2.png)
+* You also can reference the README.md from the development team below:<br>
 | Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C6 | ESP32-H2 | ESP32-S2 | ESP32-S3 |
 | ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- |
 
