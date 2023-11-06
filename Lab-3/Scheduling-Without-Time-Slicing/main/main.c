@@ -129,7 +129,9 @@ void Task3(void){
     
 }
 void app_main() {
+
     esp_register_freertos_idle_hook_for_cpu(vApplicationIdleHook, 0);
+    
     xTaskCreatePinnedToCore(Task1, "Task1", 5120, NULL, tskIDLE_PRIORITY, NULL, 0);
     xTaskCreatePinnedToCore(Task2, "Task2", 5120, NULL, tskIDLE_PRIORITY, NULL, 0);
     xTaskCreatePinnedToCore(Task3, "Task3", 5120, NULL, 5, NULL, 0);

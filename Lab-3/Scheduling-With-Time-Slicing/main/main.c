@@ -7,6 +7,7 @@
 #include "esp_timer.h"
 #include "esp_system.h"
 #include "driver/gpio.h"
+#include "FreeRTOSConfig.h"
 
 
 volatile uint32_t ulIdleCycleCount = 0UL;
@@ -29,9 +30,9 @@ void vApplicationIdleHook(void) {
     printf("--------------------------------------\n");
  }
 /*
-    Task 1: (Idle priority, continuous)
+    Task 1:
     Print the counting from 1 to 1000000
-    Print the time (ms) after the count terminate
+    Print the counter of three task before task 1 start and after task 1 completed
 */
 void Task1(void){
     printf("======================================\n");
@@ -63,9 +64,9 @@ void Task1(void){
     
 }
 /*
-    Task 2: (Idle priority, continuous)
+    Task 2:
     Print the counting from 1 to 2000000
-    Print the time (ms) after the count terminate
+    Print the counter of three task before task 2 start and after task 2 completed
 */
 void Task2(void){
     printf("======================================\n");
@@ -95,9 +96,9 @@ void Task2(void){
     }
 }
 /*
-    Task 3: (high, event)
+    Task 3:
     Print the counting from 1 to 3000000
-    Print the time (ms) after the count terminate
+    Print the counter of three task before task 3 start and after task 3 completed
 */
 void Task3(void){
     printf("======================================\n");
@@ -131,10 +132,15 @@ void Task3(void){
 void app_main() {
     esp_register_freertos_idle_hook_for_cpu(vApplicationIdleHook, 0);
     vTaskDelay(100 / portTICK_PERIOD_MS);
-    xTaskCreatePinnedToCore(Task1, "Task1", 5120, NULL, tskIDLE_PRIORITY, NULL, 0);
-    xTaskCreatePinnedToCore(Task2, "Task2", 5120, NULL, tskIDLE_PRIORITY, NULL, 0);
-    vTaskDelay(100 / portTICK_PERIOD_MS);
-    xTaskCreatePinnedToCore(Task3, "Task3", 5120, NULL, 5, NULL, 0);
+    xTaskCreatePinnedToCore(Task1, "Task1", 5120, NULL, 1, NULL, 0);
+    xTaskCreatePinnedToCore(Task2, "Task2", 5120, NULL, 1, NULL, 0);
+
+    /*Test Task 3 with higher prioriize level and go later (100ms)*/
+    // vTaskDelay(100 / portTICK_PERIOD_MS); 
+    // xTaskCreatePinnedToCore(Task3, "Task3", 5120, NULL, 5 , NULL, 0); 
+
+    /*Test Task 3 with same prioriize level*/
+    xTaskCreatePinnedToCore(Task3, "Task3", 5120, NULL, 1 , NULL, 0); 
     
 }
 
