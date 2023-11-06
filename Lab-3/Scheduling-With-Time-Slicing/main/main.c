@@ -18,6 +18,8 @@ volatile uint32_t task3CycleCount = 0UL;
 void vApplicationIdleHook(void) {
     ulIdleCycleCount++;
 }
+
+
  void printCounter(){
     printf("--------------------------------------\n");
     printf("Task1 is Counting: %ld/1000000\n",task1CycleCount);
@@ -27,7 +29,7 @@ void vApplicationIdleHook(void) {
     printf("--------------------------------------\n");
  }
 /*
-    Task 1: (high, event)
+    Task 1: (Idle priority, continuous)
     Print the counting from 1 to 1000000
     Print the time (ms) after the count terminate
 */
@@ -93,7 +95,7 @@ void Task2(void){
     }
 }
 /*
-    Task 3: (Idle priority, continuous)
+    Task 3: (high, event)
     Print the counting from 1 to 3000000
     Print the time (ms) after the count terminate
 */
