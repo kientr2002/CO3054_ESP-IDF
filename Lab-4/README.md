@@ -1,3 +1,5 @@
+| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C6 | ESP32-H2 | ESP32-S2 | ESP32-S3 |
+| ----------------- | ----- | -------- | -------- | -------- | -------- | -------- | -------- |
 # Embedded System Lab 04: FreeRTOS Queue Management
 * Description: <br>
   Suppose that we are designing an application on the ESP32 development board in which there are one reception task and some functional tasks. The reception task is designed to receive requests from somewhere and classify these tasks and send them to a queue. Each functional task would check if the next request is for it or not. If yes, it will receive the request and handle it. Vice versa, it does nothing. If no functional task receives the request, raise an error and simply ignore that request. Students are asked to implement an example for the application model mentioned above. <br>
