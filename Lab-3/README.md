@@ -10,3 +10,4 @@
      ![Lab2](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab1/10.png)
    *  Mtiny Programmer (Arduino Compatible) (You must use it if you buy the ESP32 like the one above, this device that you can buy [here](https://hshop.vn/products/mach-mtiny-programmer-arduino-compatible)) <br>
      ![Lab2](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab1/11.png)
+* Result: All Details are written in logs.txt
