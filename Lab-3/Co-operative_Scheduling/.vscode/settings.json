@@ -17,5 +17,6 @@
   "files.associations": {
     "freertosconfig.h": "c"
   },
-  "idf.flashType": "UART"
+  "idf.flashType": "UART",
+  "C_Cpp.errorSquiggles": "disabled"
 }

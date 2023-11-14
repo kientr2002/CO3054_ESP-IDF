@@ -136,10 +136,12 @@ void app_main() {
     xTaskCreatePinnedToCore(Task2, "Task2", 5120, NULL, 1, NULL, 0);
 
     /*Test Task 3 with higher prioriize level and go later (100ms)*/
-    // vTaskDelay(100 / portTICK_PERIOD_MS); 
-    // xTaskCreatePinnedToCore(Task3, "Task3", 5120, NULL, 5 , NULL, 0); 
+    vTaskDelay(100 / portTICK_PERIOD_MS); 
+    xTaskCreatePinnedToCore(Task3, "Task3", 5120, NULL, 5 , NULL, 0); 
 
     /*Test Task 3 with same prioriize level*/
     xTaskCreatePinnedToCore(Task3, "Task3", 5120, NULL, 1 , NULL, 0); 
     
 }
+
+

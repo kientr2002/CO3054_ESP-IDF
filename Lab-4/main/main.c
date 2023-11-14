@@ -10,7 +10,7 @@
 #include "esp_timer.h"
 #include <freertos/queue.h>
 
-#define QUEUE_CAPACITY 3
+#define QUEUE_CAPACITY 2
 
 
 QueueHandle_t xQueue;
@@ -122,7 +122,6 @@ void receive_Task(void *pvParameter){
   int zero_flag = 0;
   while (1)
   {
-
     /* code */
     printf("=========================================================\n");
     if(uxQueueMessagesWaiting(xQueue) > QUEUE_CAPACITY){
@@ -164,7 +163,7 @@ void app_main(void){
     printf("The queue created successfully!!!\n");  
     xTaskCreatePinnedToCore(&task_1_sender, "task1", 5120, NULL, 2, NULL, 0);
     xTaskCreatePinnedToCore(&task_2_sender, "task2", 5120, NULL, 2, NULL, 0);
-    xTaskCreatePinnedToCore(&task_3_sender, "task3", 5120, NULL, 2, NULL, 0);
+    xTaskCreatePinnedToCore(&task_3_sender, "task3", 5120, NULL, 3, NULL, 0);
     xTaskCreatePinnedToCore(&receive_Task, "receive", 5120, NULL, 1, NULL, 0);
   } else {
     printf("The queue created unsuccessfully!!!\n");
