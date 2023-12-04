@@ -26,6 +26,7 @@ In this laboratory session, we will delve into the configuration and understandi
      ![Lab5](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab5/esp32-real-diagram.png) <br>
       ![Lab5](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab5/esp32-diagram.png) <br>
    * Notice: If you want to change to other function (Scan Wifi, Build Station, Build AP), you can config at file CMakeLists.txt like bellow:
+     ![Lab5](https://github.com/kientr2002/CO3054_ESP-IDF/blob/main/Images/Lab6/fileconfig.png) <br>
 
 * You also can reference the README.md from the development team below:<br>
 # _Sample project_
