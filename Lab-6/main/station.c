@@ -18,7 +18,7 @@
 #include "lwip/sys.h"
 
 #define EXAMPLE_ESP_WIFI_SSID      "Kien"
-#define EXAMPLE_ESP_WIFI_PASS      "123456789"
+#define EXAMPLE_ESP_WIFI_PASS      "26092002"
 
 static EventGroupHandle_t s_wifi_event_group;
 
@@ -28,22 +28,16 @@ static const char *TAG = "wifi station";
 
 char Current_Date_Time[100];
 
-void time_sync_notification_cb(struct timeval *tv)
-{
-    ESP_LOGI(TAG, "Notification of a time synchronization event");
-}
+
 static void event_handler(void* arg, esp_event_base_t event_base,
                                 int32_t event_id, void* event_data)
 {
-    if (event_id == WIFI_EVENT_STA_START)
-	{
+    if (event_id == WIFI_EVENT_STA_START || event_id == WIFI_EVENT_STA_DISCONNECTED)
+    {
         esp_wifi_connect();
-    } else if (event_id == WIFI_EVENT_STA_DISCONNECTED)
-	{
-        esp_wifi_connect();
-        ESP_LOGI(TAG, "retry to connect to the AP");
     }
 }
+
 void set_up_wifi(void)
 {
     s_wifi_event_group = xEventGroupCreate();
